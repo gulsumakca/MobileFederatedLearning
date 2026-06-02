@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package flservice;
+
+option java_package = "com.example.federatedapp.proto";
+option java_outer_classname = "FLServiceProto";
+option java_multiple_files = true;
+
+// Federated Learning gRPC Service
+service FLService {
+  // Local client sends weights → server returns FedAvg result
+  rpc Fit(FitRequest) returns (FitResponse);
+  // Get current global model (for cold-start sync)
+  rpc GetModel(Empty) returns (ModelResponse);
+  // Server health / status
+  rpc GetStatus(Empty) returns (StatusResponse);
+}
+
+message Empty {}
+
+message FitRequest {
+  repeated float weights    = 1;
+  int32         num_samples = 2;
+}
+
+message FitResponse {
+  repeated float  global_weights = 1;
+  repeated string categories     = 2;
+  int32           round          = 3;
+}
+
+message ModelResponse {
+  repeated float  weights    = 1;
+  repeated string categories = 2;
+}
+
+message StatusResponse {
+  string status        = 1;
+  int32  round         = 2;
+  int32  total_clients = 3;
+  string top_category  = 4;
+}

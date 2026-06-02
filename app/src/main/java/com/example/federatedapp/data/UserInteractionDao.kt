@@ -1,5 +1,11 @@
 package com.example.federatedapp.data
 
+/*
+ * UserInteractionDao — Veritabanı sorguları (Room DAO).
+ * Tıklama ekle, tüm tıklamaları getir, kategori bazında istatistik (toplam süre + adet),
+ * hepsini temizle. CategoryStat bir kategorinin özet satırını taşır.
+ */
+
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query

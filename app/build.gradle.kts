@@ -47,15 +47,18 @@ dependencies {
     implementation(libs.androidx.compose.material3)
 
     // TensorFlow Lite
-    implementation(libs.tensorflow.lite)
-    implementation(libs.tensorflow.lite.support) {
-        exclude(group = "org.tensorflow", module = "tensorflow-lite-support-api")
-    }
+    implementation("org.tensorflow:tensorflow-lite:2.16.1")
 
     // Room
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
+
+    // Network & Images
+    // OkHttp 4.12 already supports HTTP/2 prior knowledge (gRPC cleartext)
+    implementation(libs.okhttp)
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.navigation.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

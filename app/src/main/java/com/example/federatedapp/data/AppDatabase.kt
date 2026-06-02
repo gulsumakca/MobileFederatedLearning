@@ -1,5 +1,10 @@
 package com.example.federatedapp.data
 
+/*
+ * AppDatabase — Room (SQLite) veritabanının tekil (singleton) örneği.
+ * Tüm kullanıcı tıklamaları yalnızca cihazda saklanır — federated gizlilik ilkesi.
+ */
+
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room

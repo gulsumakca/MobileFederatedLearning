@@ -1,0 +1,8 @@
+# TF Lite model oluşturmak için (create_model.py):
+#   pip install -r requirements_model.txt
+#
+# gRPC sunucuyu çalıştırmak için (grpc_server.py):
+#   pip install -r requirements_server.txt
+#
+# İkisi aynı ortamda çalışamaz (protobuf sürüm çakışması).
+# Ayrı sanal ortam (venv) kullanın veya sadece ihtiyacınız olanı kurun.
